@@ -1,0 +1,31 @@
+{
+  "name": "node-cwlogger",
+  "version": "0.0.1",
+  "description": "A simple logger for writing to console and/or AWS cloudwatch using Winston 2.x",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peebles/node-cwlogger.git"
+  },
+  "keywords": [
+    "node",
+    "aws",
+    "cloudwatch",
+    "log",
+    "logger"
+  ],
+  "author": "Andrew Peebles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peebles/node-cwlogger/issues"
+  },
+  "homepage": "https://github.com/peebles/node-cwlogger#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "winston": "^2.4.4",
+    "winston-cloudwatch": "^1.13.1"
+  }
+}
