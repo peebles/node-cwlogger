@@ -1,11 +1,8 @@
 const winston = require( 'winston' );
 const WinstonCloudWatch = require( 'winston-cloudwatch' );
 
-module.exports = function( app ) {
-  if ( ! ( app.config && app.config.logger ) )
-    throw( 'Logger: missing required app.config.logger configuration!' );
+module.exports = function( config ) {
 
-  let config = app.config.logger;
   let transports = [];
 
   if ( config.console && config.console.enabled ) {
@@ -83,6 +80,5 @@ module.exports = function( app ) {
     transports: transports,
   });
 
-  app.log = log;
   return log;
 }

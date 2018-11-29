@@ -1,6 +1,6 @@
 {
   "name": "node-cwlogger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple logger for writing to console and/or AWS cloudwatch using Winston 2.x",
   "main": "index.js",
   "scripts": {

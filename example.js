@@ -1,23 +1,18 @@
-let app = {
-  config: {
-    logger: {
-      includeNodeEnv: true,
-      console: { enabled: true },
-      cloudwatch: {
-        enabled: true,
-        group: 'staging',
-        stream: 'webserver'
-      }
-    }
+let config = {
+  includeNodeEnv: true,
+  console: { enabled: true },
+  cloudwatch: {
+    enabled: false,
+    group: 'staging',
+    stream: 'webserver'
   }
 };
 
-require( './index' )( app );
+const log = require( './index' )( config );
 
-app.log.info( 'info message', { some: 'metadata' } );
-app.log.debug( 'a debug message', 'with an argument' );
-app.log.error( 'an error:', new Error('this is an error'));
-
-app.log.error( new Error( 'error with no message' ) );
+log.info( 'info message', { some: 'metadata' } );
+log.debug( 'a debug message', 'with an argument' );
+log.error( 'an error:', new Error('this is an error'));
+log.error( new Error( 'error with no message' ) );
 
 throw( new Error( 'thrown' ) );

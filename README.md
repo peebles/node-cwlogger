@@ -3,41 +3,34 @@
 I wrote this because I do this sort of thing over and over.  This module makes it easy (for me) to
 include this behaviour in many of my stack components.
 
-This module is really designed to be used with [consign](https://github.com/jarradseers/consign) and
-assumes `app.config` already exists prior to this module being fecthed and executed by consign.  Something like:
+## Usage
 
 ```js
-let app = {}; // or app = express()
-require( 'consign' )
-  .include( 'lib/config' )
-  .include( 'lib' )
-  .into( app );
-  
-app.log.info( 'Here we go!' );
+const log = require( 'node-cwlogger' )( config );
+log.info( 'Here we go!' );
+log.error( new Error( 'you can not do that here!' ) );
+log.debug( "No you don't!", err );
+throw( "you gotta a problem" );
 ```
-
-You can also use this module without consign.  See the included example.js.
 
 ## Configuration
 
 ```js
-app.config = {
-  logger: {
-    includeNodeEnv: true,
-    console: {
-      enabled: true,
-      level: 'error',
-      colorize: true
-    },
-    cloudwatch: {
-      enabled: true,
-      level: 'debug',
-      awsAccessKeyId: 'your key',
-      awsSecretKey: 'your secret',
-      awsRegion: 'your region',
-      group: 'cloud watch group name',
-      stream: 'cloud watch stream name'
-    }
+const config = {
+  includeNodeEnv: true,
+  console: {
+    enabled: true,
+    level: 'error',
+    colorize: true
+  },
+  cloudwatch: {
+    enabled: true,
+    level: 'debug',
+    awsAccessKeyId: 'your key',
+    awsSecretKey: 'your secret',
+    awsRegion: 'your region',
+    group: 'cloud watch group name',
+    stream: 'cloud watch stream name'
   }
 }
 ```
